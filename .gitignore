@@ -1,0 +1,50 @@
+# Go build artifacts
+/bin/
+/build/
+/dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go coverage
+coverage.out
+coverage.*
+*.cover
+*.coverprofile
+*.cov
+*.lcov
+coverage/
+
+# Local Go build cache (used in restricted envs)
+/.gocache/
+
+# Logs
+*.log
+
+# Temp files
+*.swp
+*.swo
+*~
+tmp/
+.tmp/
+
+# IDE/editor
+.idea/
+.vscode/
+*.code-workspace
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env files (if used)
+.env
+.env.*
+
+# Vendored dependencies (uncomment if you don't vendor)
+# /vendor/
+
