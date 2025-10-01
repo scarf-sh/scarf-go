@@ -1,8 +1,9 @@
 # Scarf Go SDK
 
-Simple telemetry event logger for [Scarf](https://scarf.sh) endpoints.
+Send basic telemetry to Scarf [Scarf](https://scarf.sh).
 
 ## Usage
+
 
 ```go
 package main
@@ -13,7 +14,7 @@ import (
 )
 
 func main() {
-    // Initialize with required endpoint URL
+    // Initialize with required endpoint URL for your event collection package in Scarf
     logger := scarf.NewScarfEventLogger("https://your-scarf-endpoint.com")
 
     // Optional: set a default timeout (default is 3 seconds)
