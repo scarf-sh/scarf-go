@@ -59,7 +59,7 @@ Features
 Notes
 
 - `LogEvent` returns `nil` when the HTTP request is successfully sent and receives a 2xx status code. When analytics are disabled via env vars, it returns a non-nil error.
-- The `User-Agent` includes SDK version, platform, architecture, and Go version (e.g., `scarf-go/v1.2.3 (macOS; arm64) go/go1.22.3`).
+- The `User-Agent` includes SDK version, platform, architecture, and Go version in a self-describing format (e.g., `scarf-go/v1.2.3 (os=macOS; arch=arm64; go=1.22.3)`).
 - This package uses only the Go standard library, no external dependencies.
 
 Version stamping
