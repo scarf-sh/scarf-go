@@ -1,5 +1,7 @@
 # Scarf Go SDK
 
+<img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=5fe5ad0e-744e-4736-a6fc-131fbec5d8ae" />
+
 Send basic telemetry to [Scarf](https://scarf.sh).
 
 ## Usage
