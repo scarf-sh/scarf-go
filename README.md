@@ -1,6 +1,6 @@
 # Scarf Go SDK
 
-Send basic telemetry to Scarf [Scarf](https://scarf.sh).
+Send basic telemetry to [Scarf](https://scarf.sh).
 
 ## Usage
 
