@@ -62,14 +62,10 @@ Notes
 - The `User-Agent` includes SDK version, platform, architecture, and Go version in a self-describing format (e.g., `scarf-go/v1.2.3 (os=macOS; arch=arm64; go=1.22.3)`).
 - This package uses only the Go standard library, no external dependencies.
 
-Version stamping
-
-- The SDK embeds a version in the `User-Agent`. By default it is `dev`, but you can override it at build time via ldflags:
-
-  - `go build -ldflags "-X github.com/scarf-sh/scarf-go/scarf.sdkVersion=v1.2.3" ./...`
-
-  In CI, set the version from a tag or commit SHA and pass it to `-ldflags`.
-
 Request format
 
 - Events are sent as `POST` requests, with all provided properties encoded as URL query parameters on the endpoint URL. No JSON body is sent.
+
+License
+
+- Licensed under the Apache License, Version 2.0. See `LICENSE` for details.
