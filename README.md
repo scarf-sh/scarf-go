@@ -1,6 +1,5 @@
 # Scarf Go SDK
 
-<img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=5fe5ad0e-744e-4736-a6fc-131fbec5d8ae" />
 
 Send basic telemetry to [Scarf](https://scarf.sh).
 
@@ -72,3 +71,5 @@ The client can be configured through environment variables:
 ## License
 
 - Licensed under the Apache License, Version 2.0. See `LICENSE` for details.
+
+<img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=5fe5ad0e-744e-4736-a6fc-131fbec5d8ae&page=/scarf-go/readme" />
