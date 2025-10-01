@@ -1,6 +1,6 @@
-Scarf Go SDK
+# Scarf Go SDK
 
-Simple telemetry event logger for Scarf (scarf.sh) endpoints.
+Simple telemetry event logger for [Scarf](https://scarf.sh) endpoints.
 
 Usage
 
@@ -20,20 +20,23 @@ func main() {
     logger = scarf.NewScarfEventLogger("https://your-scarf-endpoint.com", 5*time.Second)
 
     // Send an event with properties
-    ok := logger.LogEvent(map[string]any{
+    if err := logger.LogEvent(map[string]any{
         "event":   "package_download",
         "package": "scarf",
         "version": "1.0.0",
-    })
-    _ = ok
+    }); err != nil {
+        // handle error
+    }
 
     // Send an event with a custom timeout overriding the default
-    ok = logger.LogEventWithTimeout(map[string]any{"event": "custom_event"}, 1*time.Second)
-    _ = ok
+    if err := logger.LogEventWithTimeout(map[string]any{"event": "custom_event"}, 1*time.Second); err != nil {
+        // handle error
+    }
 
     // Empty properties are allowed
-    ok = logger.LogEvent(map[string]any{})
-    _ = ok
+    if err := logger.LogEvent(map[string]any{}); err != nil {
+        // handle error
+    }
 }
 ```
 
@@ -55,5 +58,18 @@ Features
 
 Notes
 
+- `LogEvent` returns `nil` when the HTTP request is successfully sent and receives a 2xx status code. When analytics are disabled via env vars, it returns a non-nil error.
+- The `User-Agent` includes SDK version, platform, architecture, and Go version (e.g., `scarf-go/v1.2.3 (macOS; arm64) go/go1.22.3`).
 - This package uses only the Go standard library, no external dependencies.
-- `LogEvent` returns `true` when the HTTP request is successfully sent and receives a 2xx status code. When analytics are disabled via env vars, it returns `false` and does not send a request.
+
+Version stamping
+
+- The SDK embeds a version in the `User-Agent`. By default it is `dev`, but you can override it at build time via ldflags:
+
+  - `go build -ldflags "-X github.com/scarf-sh/scarf-go/scarf.sdkVersion=v1.2.3" ./...`
+
+  In CI, set the version from a tag or commit SHA and pass it to `-ldflags`.
+
+Request format
+
+- Events are sent as `POST` requests, with all provided properties encoded as URL query parameters on the endpoint URL. No JSON body is sent.

@@ -27,3 +27,16 @@ jobs:
       - name: Run tests
         run: go test -race -cover ./...
 
+      - name: Compute version
+        id: vars
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            echo "version=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=dev-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build with version stamp
+        run: |
+          go build -ldflags "-X github.com/scarf-sh/scarf-go/scarf.sdkVersion=${{ steps.vars.outputs.version }}" ./...
