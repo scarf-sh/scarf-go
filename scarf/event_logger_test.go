@@ -27,7 +27,7 @@ func TestLogEvent_Success(t *testing.T) {
         if r.Method != http.MethodPost {
             t.Fatalf("expected POST, got %s", r.Method)
         }
-        if ua := r.Header.Get("User-Agent"); !strings.HasPrefix(ua, "scarf-go/") || !strings.Contains(ua, "(os=") || !strings.Contains(ua, "arch=") || !strings.Contains(ua, "go=") {
+        if ua := r.Header.Get("User-Agent"); !strings.HasPrefix(ua, "scarf-go/") || !strings.Contains(ua, "(platform=") || !strings.Contains(ua, "arch=") || !strings.Contains(ua, "go=") {
             t.Fatalf("unexpected user-agent format: %q", ua)
         }
         // Validate query params are populated

@@ -20,7 +20,7 @@ const (
 // sdkVersion is the SDK version embedded in the User-Agent.
 // It can be overridden at build time via:
 //   go build -ldflags "-X github.com/scarf-sh/scarf-go/scarf.sdkVersion=v1.2.3"
-var sdkVersion = "0.1.0"
+var sdkVersion = "0.1.1"
 
 // ScarfEventLogger provides a simple API to send telemetry events to a Scarf endpoint.
 type ScarfEventLogger struct {
@@ -203,9 +203,9 @@ func buildUserAgent() string {
     if strings.TrimSpace(v) == "" {
         v = "dev"
     }
-    // Example: scarf-go/v1.2.3 (os=macOS; arch=arm64; go=1.22.3)
+    // Example: scarf-go/v1.2.3 (platform=macOS; arch=arm64; go=1.22.3)
     goVer := strings.TrimPrefix(runtime.Version(), "go")
-    return fmt.Sprintf("scarf-go/%s (os=%s; arch=%s; go=%s)", v, osName, runtime.GOARCH, goVer)
+    return fmt.Sprintf("scarf-go/%s (platform=%s; arch=%s; go=%s)", v, osName, runtime.GOARCH, goVer)
 }
 
 // stringifyParam converts a property value into a string suitable for URL query parameters.
